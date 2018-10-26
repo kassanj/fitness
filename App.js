@@ -1,5 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+         StyleSheet,
+         View,
+         TouchableHighlight,
+         TouchableOpacity,
+         TouchableNativeFeedback,
+         TouchableWithoutFeedback
+} from 'react-native';
 import AddEntry from './components/AddEntry'
 
 export default class App extends React.Component {
@@ -7,7 +14,6 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <AddEntry />
-        <Text>Open up App.js to start working on your app!</Text>
       </View>
     );
   }
