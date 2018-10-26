@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { View, TouchableOpacity, Text } from 'react-native'
 import { getMetricMetaInfo, timeToString } from '../utils/helpers'
-import Slider from './Slider'
-import Stepper from './Stepper'
+import AppSlider from './AppSlider'
+import AppStepper from './AppStepper'
 import DateHeader from './DateHeader'
 
 function SubmitBtn ({ onPress }) {
@@ -78,12 +78,12 @@ export default class AddEntry extends Component {
             <View key={key}>
               {getIcon()}
               {type === 'slider'
-                ? <Slider
+                ? <AppSlider
                     value={value}
                     onChange={(value) => this.slide(key, value)}
                     {...rest}
                   />
-                : <Stepper
+                : <AppStepper
                     value={value}
                     onIncrement={() => this.increment(key)}
                     onDecrement={() => this.decrement(key)}
@@ -92,7 +92,7 @@ export default class AddEntry extends Component {
             </View>
           )
         })}
-      <SubmitBtn onPress={this.submit} />  
+      <SubmitBtn onPress={this.submit} />
       </View>
     )
   }
