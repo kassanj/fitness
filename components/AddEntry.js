@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, TouchableOpacity, Text } from 'react-native'
+import { submitEntry, removeEntry } from '../utils/api'
 import { getMetricMetaInfo, timeToString } from '../utils/helpers'
 import AppSlider from './AppSlider'
 import AppStepper from './AppStepper'
@@ -62,7 +63,7 @@ export default class AddEntry extends Component {
      // Update Redux
      this.setState(() => ({ run: 0, bike: 0, swim: 0, sleep: 0, eat: 0 }))
      // Navigate to home
-     // Save to "DB"
+     submitEntry({ key, entry }) // Save to "DB"
      // Clear local notification
   }
 
@@ -73,7 +74,7 @@ export default class AddEntry extends Component {
 
     // Route to Home
 
-    // Update "DB"
+    removeEntry({ key }) // Update to "DB"
   }
 
   render() {
