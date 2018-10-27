@@ -8,6 +8,8 @@ import { addEntry } from '../actions'
 import AppSlider from './AppSlider'
 import AppStepper from './AppStepper'
 import DateHeader from './DateHeader'
+import { NavigationActions } from 'react-navigation'
+
 import { Ionicons } from '@expo/vector-icons'
 import TextButton from './TextButton'
 import { purple, white } from '../utils/colors'
@@ -73,7 +75,8 @@ class AddEntry extends Component {
 
      this.setState(() => ({ run: 0, bike: 0, swim: 0, sleep: 0, eat: 0 }))
 
-     // Navigate to home
+     // Route to home
+     this.toHome()
 
      // Save to "DB"
      submitEntry({ key, entry })
@@ -90,9 +93,14 @@ class AddEntry extends Component {
     }))
 
     // Route to Home
+    this.toHome()
 
     // Update to "DB"
     removeEntry({ key })
+  }
+
+  toHome = () => {
+    this.props.navigation.dispatch(NavigationActions.back({key: 'AddEntry'}))
   }
 
   render() {
